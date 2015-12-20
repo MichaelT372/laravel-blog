@@ -12,16 +12,17 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss', 'resources/css');
-    /*
+    mix.sass('app.scss', 'resources/assets/css/app.css');
+
     mix.styles([
         'libs/bootstrap.min.css',
+        'libs/select2.min.css',
         'app.css'
     ]);
-    */
 
-    //mix.version('public/css/all.css');
-
-    //mix.phpUnit();
-
+    mix.scripts([
+        'libs/jquery.js',
+        'libs/bootstrap.min.js',
+        'libs/select2.min.js'
+    ]);
 });
