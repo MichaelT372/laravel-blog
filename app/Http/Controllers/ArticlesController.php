@@ -64,8 +64,10 @@ class ArticlesController extends Controller
     }
 
     //sync up list of tags in the database
-    private function syncTags(Article $article, array $tags)
+    private function syncTags(Article $article, array $tags = null)
     {
+        $tags = $tags == null ? [] : $tags;
+
         $article->tags()->sync($tags);
     }
 
