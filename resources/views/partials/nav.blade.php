@@ -11,11 +11,16 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/articles">Articles</a></li>
+                <li><a href="/articles/create">Create Article</a></li>
+                <li><a href="/articles">View Articles</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li>{!! link_to_action('ArticlesController@show', $latest->title, [$latest->id]) !!}</li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                @if($latest)
+                    <li>{!! link_to_action('ArticlesController@show', $latest->title, [$latest->id]) !!}</li>
+                @endif
             </ul>
         </div>
     </div>

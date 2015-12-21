@@ -2,7 +2,9 @@
 
 @section('content')
     <h1>Articles</h1>
-
+    @if($name)
+        <h3>All '{{ $name }}' Articles</h3>
+    @endif
     <hr>
 
     @foreach($articles as $article)

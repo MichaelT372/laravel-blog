@@ -14,6 +14,8 @@ class TagsController extends Controller
     {
         $articles = $tag->articles()->published()->get();
 
-        return view('articles.index', compact('articles'));
+        $name = $tag->name;
+
+        return view('articles.index', compact('articles', 'name'));
     }
 }

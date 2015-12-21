@@ -9,15 +9,20 @@ use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
+    public function home()
+    {
+        return view('pages.home');
+    }
+
     public function about()
     {
         $data = [
             'first' => 'Michael',
             'last' => 'Thomas',
-            'people' => [
-                'Taylor',
-                'Dayle',
-                'Eric'
+            'things' => [
+                'Coding',
+                'Internet',
+                'PHP'
             ]
         ];
 
@@ -26,6 +31,6 @@ class PagesController extends Controller
 
     public function contact()
     {
-        return view('pages.contact'); 
+        return view('pages.contact');
     }
 }

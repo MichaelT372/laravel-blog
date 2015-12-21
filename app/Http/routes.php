@@ -1,9 +1,6 @@
 <?php
 
-Route::get('/', function(){
-    return 'Home Page';
-});
-
+Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
 

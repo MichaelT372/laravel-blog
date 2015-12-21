@@ -20,9 +20,9 @@ class ArticlesController extends Controller
 
     public function index()
     {
+        $name = '';
         $articles = Article::latest('published_at')->published()->get();
-
-        return view('articles.index', compact('articles'));
+        return view('articles.index', compact('articles', 'name'));
     }
 
     public function show(Article $article)
@@ -63,6 +63,15 @@ class ArticlesController extends Controller
         return redirect('articles');
     }
 
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        return redirect('articles')->with([
+            'flash_message' => 'Article successfully deleted!',
+        ]);
+    }
+
     //sync up list of tags in the database
     private function syncTags(Article $article, array $tags = null)
     {
@@ -75,8 +84,7 @@ class ArticlesController extends Controller
     private function createArticle(ArticleRequest $request)
     {
         $article = \Auth::user()->articles()->create($request->all());
-
-        $article->syncTags($article, $request->input('tag_list'));
+        $this->syncTags($article, $request->input('tag_list'));
 
         return $article;
     }
