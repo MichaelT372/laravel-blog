@@ -12,7 +12,7 @@ Install NPM packages:
 
 npm Install
 
-Migrate database (requires sqlite):
+Migrate database:
 
 php artisan migrate
 
